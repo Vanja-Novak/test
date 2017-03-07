@@ -25,31 +25,31 @@ public class AppController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        model.addAttribute("catList", catService.findAllCat());
+      //  model.addAttribute("catList", catService.findAllCat());
         return "index";
     }
 
     @RequestMapping(value = {"/edit/{catId}"}, method = RequestMethod.GET)
     public String editCat(@PathVariable Integer catId, ModelMap model) {
-        model.addAttribute("cat", catService.findById(catId));
+    //    model.addAttribute("cat", catService.findById(catId));
         return "edit";
     }
 
     @RequestMapping(value = {"/update"}, method = RequestMethod.POST)
     public String updateCat(@ModelAttribute("cat") Cat cat, BindingResult result) {
-        catService.update(cat);
+    //    catService.update(cat);
         return "redirect:/index";
     }
 
     @RequestMapping(value = {"/add"}, method = RequestMethod.GET)
     public String deleteUser(ModelMap model) {
-        catService.add();
+       // catService.add();
         return "redirect:/index";
     }
 
     @RequestMapping(value = {"/delete/{catId}"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable Integer catId) {
-        catService.deleteById(catId);
+      //  catService.deleteById(catId);
         return "redirect:/index";
     }
 }
